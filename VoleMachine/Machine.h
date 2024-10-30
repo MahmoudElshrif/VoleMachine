@@ -9,12 +9,13 @@ using namespace std;
 
 class Machine
 {
-	CPU& processor;
-	Memory& memory;
+	CPU* processor;
+	Memory* memory;
 
 public:
-	Machine(string file);
-	void loadProgramFile();
+	Machine();
+	~Machine();
+	void loadProgramFile(string file);
 	void outputState();
 };
 

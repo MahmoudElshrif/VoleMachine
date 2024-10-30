@@ -7,6 +7,8 @@ using namespace std;
 
 class ALU
 {
+public:
+	ALU();
 	int hexToDec(string num);
 	string decToHex(int num);
 	bool isValid(string num);

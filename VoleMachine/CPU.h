@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -11,16 +12,19 @@ class CU;
 
 
 class CPU {
-	int programCounter = 0;
+	int programCounter = 1;
 	string intructionRegister;
-	Register& reg;
-	Memory& mem;
-	ALU& ALU;
-	CU& CU;
+	Register* reg;
+	Memory* mem;
+	ALU* alu;
+	CU* cu;
 public:
-	void runNextStep(Memory& mem);
-	void fetch(Memory& mem);
+	CPU();
+	~CPU();
+	void runNextStep();
+	void fetch();
 	vector<int> decode();
 	void execute(vector<int> vec);
 	void halt();
+	void setMemory(Memory* mem);
 };
