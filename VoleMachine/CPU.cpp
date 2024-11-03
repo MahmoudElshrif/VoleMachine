@@ -27,16 +27,16 @@ void CPU::runNextStep() {
 }
 
 
-void CPU::execute(string s) {
+bool CPU::execute(string s) {
 	string op = ("" + s[0]) + s[1];
 	string cell2 = ("" + s[2]) + s[3];
 	int regcell = alu->hexToDec("" + op[1]);
 	switch (op[0]) {
 	case 'c':
-		halt();
+		return false;
 		break;
 	case '1':
-		cu->load(regcell, programCounter + 1, *reg, *mem);
+		cu->load(regcell, alu->hexToDec(cell2), *reg, *mem);
 		break;
 	case '2':
 		cu->load(regcell, alu->hexToDec(cell2), *reg);
@@ -56,6 +56,7 @@ void CPU::execute(string s) {
 		cu->jump(regcell,alu->hexToDec(cell2),*reg, programCounter);
 		break;
 	}
+	return true;
 }
 
 void CPU::setMemory(Memory* mem) {

@@ -21,7 +21,7 @@ public:
 	CPU(Memory* mem);
 	~CPU();
 	void runNextStep();
-	void execute(string s);
+	bool execute(string s);
 	void halt() {};
 	void setMemory(Memory* mem);
 	void printRegister();
