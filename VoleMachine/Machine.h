@@ -18,5 +18,6 @@ public:
 	void loadProgramFile(string file);
 	void printMemory();
 	void printReg();
+	void executeLine();
 };
 

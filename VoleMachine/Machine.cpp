@@ -57,3 +57,13 @@ void Machine::printMemory() {
 void Machine::printReg() {
 	this->processor->printRegister();
 }
+
+void Machine::executeLine() {
+	string s = "0000";
+
+	for (int i = 0; i < 4; i++) {
+		cin >> s[i];
+	}
+
+	this->processor->execute(s);
+}
