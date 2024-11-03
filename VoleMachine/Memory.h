@@ -6,9 +6,9 @@ using namespace std;
 
 class Memory
 {
-	const int size = 256;
 	string memory[256];
 public:
+	const int size = 256;
 	Memory();
 	string getCell(int address);
 	void setCell(int address, string val);

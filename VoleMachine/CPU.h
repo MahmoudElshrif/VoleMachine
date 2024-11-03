@@ -13,18 +13,16 @@ class CU;
 
 class CPU {
 	int programCounter = 1;
-	string intructionRegister;
 	Register* reg;
 	Memory* mem;
 	ALU* alu;
 	CU* cu;
 public:
-	CPU();
+	CPU(Memory* mem);
 	~CPU();
 	void runNextStep();
-	void fetch();
-	vector<int> decode();
-	void execute(vector<int> vec);
-	void halt();
+	void execute(string s);
+	void halt() {};
 	void setMemory(Memory* mem);
+	void printRegister();
 };

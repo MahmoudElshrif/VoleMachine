@@ -16,6 +16,7 @@ public:
 	Machine();
 	~Machine();
 	void loadProgramFile(string file);
-	void outputState();
+	void printMemory();
+	void printReg();
 };
 

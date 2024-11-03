@@ -8,10 +8,10 @@ using namespace std;
 class ALU
 {
 public:
-	ALU();
-	int hexToDec(string num);
-	string decToHex(int num);
-	bool isValid(string num);
-	void add(int idx1, int idx2, int idx3, Register& reg);
+	ALU() {};
+	int hexToDec(string num) { return 0; };
+	string decToHex(int num) { return "01"; };
+	bool isValid(string num) { return true; };
+	void add(int idx1, int idx2, int idx3, Register& reg) {};
 };
 

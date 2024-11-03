@@ -5,12 +5,12 @@
 #include "CU.h"
 
 
-CPU::CPU(){
+CPU::CPU(Memory* mem){
 	reg = new Register();
 	alu = new ALU();
 	cu = new CU();
+	this->setMemory(mem);
 }
-
 
 CPU::~CPU() {
 	delete reg;
@@ -20,15 +20,16 @@ CPU::~CPU() {
 
 
 void CPU::runNextStep() {
-	this->execute(this->decode());
+	string s = mem->getCell(programCounter) + mem->getCell(programCounter);
+	this->execute(s);
 
 	programCounter += 2;
 }
 
 
-vector<int> CPU::decode() {
-	string op = mem->getCell(programCounter);
-	string cell2 = mem->getCell(programCounter + 1);
+void CPU::execute(string s) {
+	string op = ("" + s[0]) + s[1];
+	string cell2 = ("" + s[2]) + s[3];
 	int regcell = alu->hexToDec("" + op[1]);
 	switch (op[0]) {
 	case 'c':
@@ -59,4 +60,13 @@ vector<int> CPU::decode() {
 
 void CPU::setMemory(Memory* mem) {
 	this->mem = mem;
+}
+
+
+void CPU::printRegister() {
+	cout << endl;
+	for (int i = 0; i < 16; i++) {
+		cout << this->reg->getCell(i) << endl;
+	}
+	cout << endl;
 }

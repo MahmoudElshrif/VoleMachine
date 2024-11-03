@@ -131,6 +131,7 @@
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="CU.cpp" />
     <ClCompile Include="Machine.cpp" />
+    <ClCompile Include="MachineUI.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="Register.cpp" />
     <ClCompile Include="VoleMachine.cpp" />
@@ -140,8 +141,12 @@
     <ClInclude Include="CPU.h" />
     <ClInclude Include="CU.h" />
     <ClInclude Include="Machine.h" />
+    <ClInclude Include="MachineUI.h" />
     <ClInclude Include="Memory.h" />
     <ClInclude Include="Register.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
