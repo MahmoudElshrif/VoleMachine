@@ -10,7 +10,7 @@ class Memory
 public:
 	const int size = 256;
 	Memory();
-	string getCell(int address);
-	void setCell(int address, string val);
+	string getCell(unsigned char  address);
+	void setCell(unsigned char  address, string val);
 };
 

@@ -19,13 +19,14 @@ CPU::~CPU() {
 
 bool CPU::execute() {
 	programCounter = 10;
+	cout << "//////////////\n\n";
 	while (true) {
 		string op = this->mem->getCell(programCounter++);
 		string cell2 = this->mem->getCell(programCounter++);
-		int regcell = cu->hexToDec("" + op[1]);
+		unsigned char regcell = cu->hexToDec(op[1]);
 		switch (op[0]) {
-		case '0':
 		case 'c':
+			cout << "\n\n//////////////\n";
 			return false;
 			break;
 		case '1':
@@ -38,10 +39,10 @@ bool CPU::execute() {
 			cu->store(regcell, cu->hexToDec(cell2),*reg,*mem);
 			break;
 		case '4':
-			cu->move(cu->hexToDec("" + cell2[0]), cu->hexToDec("" + cell2[1]), *reg);
+			cu->move(cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
 			break;
 		case '5':
-			cu->add(regcell, cu->hexToDec("" + cell2[0]), cu->hexToDec("" + cell2[1]), *reg);
+			cu->add(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
 			break;
 		case '6':
 			break;
@@ -59,14 +60,18 @@ void CPU::setMemory(Memory* mem) {
 
 void CPU::printRegister() {
 	cout << endl;
-	for (int i = 0; i < 16; i++) {
-		cout << this->reg->getCell(i) << endl;
+	for (unsigned char i = 0; i < 16; i++) {
+
+		string val = cu->decToHex(this->reg->getCell(i));
+		val[0] = toupper(val[0]);
+		val[1] = toupper(val[1]);
+		cout << (char)toupper(cu->decToHex(i)[1]) << ": " << val << endl;
 	}
 	cout << endl;
 }
 
 void CPU::clearReg() {
-	for (int i = 0; i < 16; i++) {
+	for (unsigned char i = 0; i < 16; i++) {
 		reg->setCell(i, 0);
 	}
 }

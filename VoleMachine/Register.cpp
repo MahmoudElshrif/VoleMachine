@@ -1,11 +1,11 @@
 #include "Register.h"
 
 
-int Register::getCell(int cell) {
+unsigned char Register::getCell(unsigned char  cell) {
 	return this->memory[cell];
 }
 
 
-void Register::setCell(int cell, int val) {
+void Register::setCell(unsigned char cell, unsigned char val) {
 	this->memory[cell] = val;
 }

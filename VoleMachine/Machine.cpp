@@ -3,11 +3,11 @@
 #include "Memory.h"
 #include "CPU.h"
 #include "ALU.h"
+#include <string>
 
 Machine::Machine(){
 	memory = new Memory();
 	processor = new CPU(memory);
-	//processor->setMemory(memory);
 
 }
 
@@ -18,17 +18,38 @@ Machine::~Machine() {
 
 void Machine::loadFromFile(string file) {
 	ifstream f(file);
-	int counter = 1;
+	if (!f.good()) {
+		cout << "\nSomething went wrong\n\n";
+		return;
+	}
+	int counter = 10;
 	while (!f.eof()) {
 		string s = "00";
+		do {
 		f >> s[0];
-		f >> s[1];
+
+		} while (!isalpha(s[0]) && !isdigit(s[0]));
+
+		do {
+			f >> s[1];
+
+		} while (!isalpha(s[0]) && !isdigit(s[0]));
 		memory->setCell(counter++, s);
 		if (counter > 256)
 			break;
 	}
 }
 
+void Machine::writeFile(string file){
+	ofstream f(file);
+
+	int program = 0;
+	while (program < 256) {
+		f << memory->getCell(program++) << memory->getCell(program++) << "\n";
+
+	}
+
+}
 
 void Machine::printMemory() {
 	cout << endl;
@@ -63,7 +84,7 @@ void Machine::start() {
 }
 
 void Machine::clearMemory() {
-	for (int i = 0; i < 256; i++) {
+	for (int i = 10; i < 256; i++) {
 		this->memory->setCell(i, "00");
 	}
 }

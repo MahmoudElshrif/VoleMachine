@@ -12,7 +12,7 @@ class CU;
 
 
 class CPU {
-	int programCounter = 1;
+	unsigned char programCounter = 10;
 	Register* reg;
 	Memory* mem;
 	CU* cu;

@@ -11,12 +11,12 @@ void MachineUI::displayOptions() {
 	while (true){
 		cout << "---------Vole Machine---------\n" << endl;
 		cout << "1) Read file into memory\n";
-		cout << "2) Execute";
+		cout << "2) Execute\n";
 		cout << "3) Print Memory\n";
 		cout << "4) Print Register\n";
 		cout << "5) Clear Memory\n";
 		cout << "6) Clear Register\n";
-		cout << "7) Write memory into file\n";
+		cout << "7) Write current memory into file\n";
 		cout << "0) Exit\n";
 
 		char c;
@@ -58,5 +58,20 @@ void MachineUI::displayOptions() {
 
 
 void MachineUI::readFromFile() {
-	machine->loadFromFile("test.txt");
+
+	cout << "File name: ";
+
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	string s;
+	getline(std::cin, s);
+	machine->loadFromFile(s);
+}
+
+void MachineUI::writeToFile() {
+	cout << endl << "(only writes starting from cell 0A)" << endl << endl;
+	cout << "File name: ";
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	string s;
+	getline(std::cin, s);
+	machine->writeFile(s);
 }

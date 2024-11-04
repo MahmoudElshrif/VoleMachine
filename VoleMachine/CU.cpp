@@ -5,69 +5,71 @@
 
 
 
-void CU::load(int idxreg, int idxmem, Register& reg, Memory& mem) {
+void CU::load(unsigned char idxreg, unsigned char idxmem, Register& reg, Memory& mem) {
 	reg.setCell(idxreg, hexToDec(mem.getCell(idxmem)));
 }
 
-void CU::load(int idxreg, int val, Register& reg) {
+void CU::load(unsigned char idxreg, unsigned char val, Register& reg) {
 	reg.setCell(idxreg, val);
 }
 
-void CU::store(int idxreg, int idxmem, Register& reg, Memory& mem) {
+void CU::store(unsigned char idxreg, unsigned char idxmem, Register& reg, Memory& mem) {
 	mem.setCell(idxmem, decToHex(reg.getCell(idxreg)));
 	if (idxmem == 0) {
-		cout << (char)reg.getCell(idxreg);
+		cout << (unsigned char)reg.getCell(idxreg);
 	}
 }
 
-void CU::move(int idx1, int idx2, Register& reg) {
-	reg.setCell(idx1, reg.getCell(idx2));
+void CU::move(unsigned char  idx1, unsigned char  idx2, Register& reg) {
+	reg.setCell(idx2, reg.getCell(idx1));
 }
 
-void CU::add(int idx1, int idx2, int idx3, Register& reg) {
-	reg.setCell(idx3, reg.getCell(idx1) + reg.getCell(idx2));
+void CU::add(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Register& reg) {
+	reg.setCell(idx1, reg.getCell(idx2) + reg.getCell(idx3));
 }
 
-void CU::jump(int idxReg, int IdxMem, Register& reg, Memory& mem, int& PC) {
+void CU::jump(unsigned char idxReg, unsigned char IdxMem, Register& reg, Memory& mem, unsigned char& PC) {
 	if (reg.getCell(0) == reg.getCell(idxReg)) {
 		PC = IdxMem;
 	}
 }
+unsigned char CU::hexToDec(char c) {
+	return hexToDec(string(1, c));
+}
 
+unsigned char CU::hexToDec(string s) {
+	unsigned char total = 0;
 
-int CU::hexToDec(string s) {
-	int total = 0;
+	if (s.length() == 1) {
+		s = "0" + s;
+	}
 
-	for (auto c : s) {
-		total *= 16;
-		if (isalpha(c)) {
-			total += c - 'a' + 10;
-		}
-		else {
-			total += c - '0';
-		}
+	if (isalpha(s[0])) {
+		total += s[0] - 'a' + 10;
+	}
+	else {
+		total += s[0] - '0';
+	}
+
+	total <<= 4;
+	if (isalpha(s[1])) {
+		total += s[1] - 'a' + 10;
+	}
+	else {
+		total += s[1] - '0';
 	}
 
 	return total;
 }
 
-string CU::decToHex(int i) {
-	string s = "";
-
-	i %= 256;
-	if (i == 0) {
-		return "00";
-	}
-
+string CU::decToHex(unsigned char i) {
+	string s = "00";
 	const string chars = "0123456789abcedf";
-	while (i) {
-		s += chars[i % 16];
-		i /= 16;
-	}
+	
+	s[1] = chars[i & 15];
+	i >>= 4;
 
-	reverse(s.begin(), s.end());
-	if (s.length() == 1) {
-		return "0" + s;
-	}
+	s[0] = chars[i & 15];
+
 	return s;
 }

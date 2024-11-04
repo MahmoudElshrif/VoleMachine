@@ -11,13 +11,14 @@ class CU
 {
 public:
 	CU() {};
-	void load(int idxReg, int idxMem, Register& reg, Memory& mem);
-	void load(int idxReg, int val, Register& reg);
-	void store(int idxReg, int idxMem, Register& reg, Memory& mem);
-	void move(int idxReg1, int idxReg2, Register& reg);
-	void jump(int idxReg, int IdxMem, Register& reg,Memory& mem, int& PC);
-	int hexToDec(string num);
-	string decToHex(int num);
-	void add(int idx1, int idx2, int idx3, Register& reg);
+	void load(unsigned char idxReg, unsigned char idxMem, Register& reg, Memory& mem);
+	void load(unsigned char idxReg, unsigned char val, Register& reg);
+	void store(unsigned char idxReg, unsigned char idxMem, Register& reg, Memory& mem);
+	void move(unsigned char idxReg1, unsigned char idxReg2, Register& reg);
+	void jump(unsigned char idxReg, unsigned char IdxMem, Register& reg,Memory& mem, unsigned char& PC);
+	unsigned char hexToDec(char c);
+	unsigned char hexToDec(string num);
+	string decToHex(unsigned char num);
+	void add(unsigned char idx1, unsigned char idx2, unsigned char idx3, Register& reg);
 };
 

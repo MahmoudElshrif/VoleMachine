@@ -11,6 +11,6 @@ public:
 	MachineUI();
 	void displayOptions();
 	void readFromFile();
-	void writeToFile() {};
+	void writeToFile();
 };
 

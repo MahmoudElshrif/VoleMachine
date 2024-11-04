@@ -16,9 +16,9 @@ public:
 	Machine();
 	~Machine();
 	void loadFromFile(string file);
+	void writeFile(string file);
 	void printMemory();
 	void printReg();
-	void writeFile(string file);
 	void clearMemory();
 	void clearReg();
 	void start();
