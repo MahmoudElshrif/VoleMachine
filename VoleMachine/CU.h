@@ -21,6 +21,7 @@ public:
 	unsigned char hexToDec(string num);
 	string decToHex(unsigned char num);
 	void add(unsigned char idx1, unsigned char idx2, unsigned char idx3, Register& reg);
+	void addFloat(unsigned char idx1, unsigned char idx2, unsigned char idx3, Register& reg);
 	void bitwiseor(unsigned char idx1, unsigned char idx2, unsigned char idx3, Register& reg);
 	void bitwiseand(unsigned char idx1, unsigned char idx2, unsigned char idx3, Register& reg);
 	void bitwisexor(unsigned char idx1, unsigned char idx2, unsigned char idx3, Register& reg);

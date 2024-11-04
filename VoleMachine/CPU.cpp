@@ -45,6 +45,7 @@ bool CPU::execute() {
 			cu->add(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
 			break;
 		case '6':
+			cu->add(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
 			break;
 		case '7':
 			cu->bitwiseor(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);

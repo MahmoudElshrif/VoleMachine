@@ -28,6 +28,64 @@ void CU::add(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Regi
 	reg.setCell(idx1, reg.getCell(idx2) + reg.getCell(idx3));
 }
 
+void CU::addFloat(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Register& reg) {
+	auto val1 = reg.getCell(idx1);
+	auto val2 = reg.getCell(idx2);
+
+	double n1 = 0;
+	double n2 = 0;
+
+	for (int i = 0; i < 4; i++) {
+		n1 /= 2.;
+		n2 /= 2.;
+
+		n1 += val1 & 1;
+		n2 += val2 & 1;
+	}
+
+	n1 *= pow(2, val1 & 0b111);
+	n2 *= pow(2, val1 & 0b111);
+	
+	val1 >>= 3;
+	val1 >>= 3;
+	if (val1) {
+		n1 *= -1;
+	}
+	if (val2) {
+		n2 *= -1;
+	}
+
+	auto n3 = n1 + n2;
+	int exp = 0;
+
+	while (n3 > 0) {
+		exp++;
+		n3 /= 2;
+	}
+
+	while (n3 != (int)n3) {
+		n3 *= 2;
+	}
+
+
+	unsigned char f = 0;
+	if (n3 < 0) {
+		f += 1;
+	}
+	f <<= 3;
+	
+	f += exp;
+
+	f <<= 4;
+	
+	f += n3;
+
+
+	reg.setCell(idx1, f);
+
+
+}
+
 void CU::bitwiseor(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Register& reg) {
 	reg.setCell(idx1, reg.getCell(idx2) | reg.getCell(idx3));
 }
