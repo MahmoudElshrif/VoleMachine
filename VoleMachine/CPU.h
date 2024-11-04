@@ -20,7 +20,6 @@ public:
 	CPU(Memory* mem);
 	~CPU();
 	bool execute();
-	void halt() {};
 	void setMemory(Memory* mem);
 	void printRegister();
 	void clearReg();
