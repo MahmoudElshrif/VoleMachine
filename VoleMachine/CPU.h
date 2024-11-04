@@ -7,7 +7,6 @@ using namespace std;
 
 class Memory;
 class Register;
-class ALU;
 class CU;
 
 

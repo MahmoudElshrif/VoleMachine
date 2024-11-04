@@ -2,7 +2,6 @@
 #include <fstream>
 #include "Memory.h"
 #include "CPU.h"
-#include "ALU.h"
 #include <string>
 
 Machine::Machine(){
