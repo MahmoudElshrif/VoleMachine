@@ -46,8 +46,23 @@ bool CPU::execute() {
 			break;
 		case '6':
 			break;
+		case '7':
+			cu->bitwiseor(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
+			break;
+		case '8':
+			cu->bitwiseand(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
+			break;
+		case '9':
+			cu->bitwisexor(regcell, cu->hexToDec(cell2[0]), cu->hexToDec(cell2[1]), *reg);
+			break;
+		case 'a':
+			cu->rotate(regcell,cell2[1], *reg);
+			break;
 		case 'b':
-			cu->jump(regcell,cu->hexToDec(cell2),*reg, *mem, programCounter);
+			cu->jumpIfEqual(regcell,cu->hexToDec(cell2),*reg, *mem, programCounter);
+			break;
+		case 'D':
+			cu->jumpIfGreater(regcell, cu->hexToDec(cell2), *reg, *mem, programCounter);
 			break;
 		}
 	}

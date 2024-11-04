@@ -28,8 +28,35 @@ void CU::add(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Regi
 	reg.setCell(idx1, reg.getCell(idx2) + reg.getCell(idx3));
 }
 
-void CU::jump(unsigned char idxReg, unsigned char IdxMem, Register& reg, Memory& mem, unsigned char& PC) {
+void CU::bitwiseor(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Register& reg) {
+	reg.setCell(idx1, reg.getCell(idx2) | reg.getCell(idx3));
+}
+
+void CU::bitwiseand(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Register& reg) {
+	reg.setCell(idx1, reg.getCell(idx2) & reg.getCell(idx3));
+}
+
+void CU::bitwisexor(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3, Register & reg) {
+	reg.setCell(idx1, reg.getCell(idx2) ^ reg.getCell(idx3));
+}
+
+void CU::rotate(unsigned char idx, unsigned char steps, Register& reg) {
+	unsigned char val = reg.getCell(idx);
+	for (int i = 0; i < steps; i++) {
+		int c = val & 1;
+		val >>= 1;
+		val += 0x80 * c;
+	}
+}
+
+void CU::jumpIfEqual(unsigned char idxReg, unsigned char IdxMem, Register& reg, Memory& mem, unsigned char& PC) {
 	if (reg.getCell(0) == reg.getCell(idxReg)) {
+		PC = IdxMem;
+	}
+}
+
+void CU::jumpIfGreater(unsigned char idxReg, unsigned char IdxMem, Register& reg, Memory& mem, unsigned char& PC) {
+	if ((char)reg.getCell(0) > (char)reg.getCell(idxReg)) {
 		PC = IdxMem;
 	}
 }
