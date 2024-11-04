@@ -27,9 +27,6 @@
     <ClCompile Include="CU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ALU.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Register.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CU.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Register.h">

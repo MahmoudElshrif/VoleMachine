@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ALU.cpp" />
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="CU.cpp" />
     <ClCompile Include="Machine.cpp" />
@@ -137,7 +136,6 @@
     <ClCompile Include="VoleMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ALU.h" />
     <ClInclude Include="CPU.h" />
     <ClInclude Include="CU.h" />
     <ClInclude Include="Machine.h" />

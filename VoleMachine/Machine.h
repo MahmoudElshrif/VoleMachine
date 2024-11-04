@@ -15,9 +15,12 @@ class Machine
 public:
 	Machine();
 	~Machine();
-	void loadProgramFile(string file);
+	void loadFromFile(string file);
 	void printMemory();
 	void printReg();
-	void executeLine();
+	void writeFile(string file);
+	void clearMemory();
+	void clearReg();
+	void start();
 };
 

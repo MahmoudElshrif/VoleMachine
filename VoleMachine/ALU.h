@@ -9,8 +9,5 @@ class ALU
 {
 public:
 	ALU() {};
-	int hexToDec(string num);
-	string decToHex(int num);
-	void add(int idx1, int idx2, int idx3, Register& reg) {};
 };
 

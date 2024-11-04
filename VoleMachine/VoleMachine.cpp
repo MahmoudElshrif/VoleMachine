@@ -1,11 +1,8 @@
 #include <iostream>
-#include "Machine.h"
+#include "MachineUI.h"
 
 int main()
 {
-	Machine m;
-	m.loadProgramFile("test.txt");
+	MachineUI UI;
 
-	m.printMemory();
-	m.printReg();
 }

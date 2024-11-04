@@ -16,7 +16,7 @@ Machine::~Machine() {
 	delete processor;
 }
 
-void Machine::loadProgramFile(string file) {
+void Machine::loadFromFile(string file) {
 	ifstream f(file);
 	int counter = 1;
 	while (!f.eof()) {
@@ -58,12 +58,16 @@ void Machine::printReg() {
 	this->processor->printRegister();
 }
 
-void Machine::executeLine() {
-	string s = "0000";
+void Machine::start() {
+	processor->execute();
+}
 
-	for (int i = 0; i < 4; i++) {
-		cin >> s[i];
+void Machine::clearMemory() {
+	for (int i = 0; i < 256; i++) {
+		this->memory->setCell(i, "00");
 	}
+}
 
-	this->processor->execute(s);
+void Machine::clearReg() {
+	this->processor->clearReg();
 }
