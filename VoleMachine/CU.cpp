@@ -118,6 +118,7 @@ void CU::jumpIfGreater(unsigned char idxReg, unsigned char IdxMem, Register& reg
 		PC = IdxMem;
 	}
 }
+
 unsigned char CU::hexToDec(char c) {
 	return hexToDec(string(1, c));
 }
