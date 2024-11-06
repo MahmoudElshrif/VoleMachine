@@ -5,8 +5,8 @@
 
 
 void CU::resetState() {
-	stringstream state();
-	stringstream statehex();
+	state.str(std::string());;
+	statehex.str(std::string());;
 }
 
 void CU::outputState() {

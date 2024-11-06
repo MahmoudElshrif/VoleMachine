@@ -47,10 +47,11 @@ bool CPU::execute(bool step) {
 
 		switch (op[0]) {
 		case 'c':
-			cout << "Halt" << endl;
+			if(step)
+				cout << "Halt" << endl;
 			cout << "\n\n//////////////\n\n";
 			cu->outputState();
-			cout << "\n\n//////////////\n";
+			cout << "\n//////////////\n\n";
 			return false;
 			break;
 		case '1':

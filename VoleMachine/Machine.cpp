@@ -7,6 +7,8 @@
 Machine::Machine(){
 	memory = new Memory();
 	processor = new CPU(memory);
+	clearMemory();
+	clearReg();
 
 }
 
