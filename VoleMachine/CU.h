@@ -1,4 +1,5 @@
 #pragma once
+#include <sstream>
 
 
 class Register;
@@ -9,8 +10,16 @@ using namespace std;
 
 class CU
 {
+	stringstream state;
+	stringstream statehex;
+
 public:
-	CU() {};
+	CU() {
+
+	};
+	void resetState();
+	void outputState();
+	void bufferState(unsigned char c);
 	void load(unsigned char idxReg, unsigned char idxMem, Register& reg, Memory& mem);
 	void load(unsigned char idxReg, unsigned char val, Register& reg);
 	void store(unsigned char idxReg, unsigned char idxMem, Register& reg, Memory& mem);

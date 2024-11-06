@@ -4,6 +4,23 @@
 #include "Memory.h"
 
 
+void CU::resetState() {
+	stringstream state();
+	stringstream statehex();
+}
+
+void CU::outputState() {
+	cout << state.str() << endl << endl;
+	cout << statehex.str() << endl;
+}
+
+void CU::bufferState(unsigned char c) {
+	state << c;
+	string s = decToHex(c);
+	s[0] = toupper(s[0]);
+	s[1] = toupper(s[1]);
+	statehex << s << " ";
+}
 
 void CU::load(unsigned char idxreg, unsigned char idxmem, Register& reg, Memory& mem) {
 	reg.setCell(idxreg, hexToDec(mem.getCell(idxmem)));
@@ -16,7 +33,7 @@ void CU::load(unsigned char idxreg, unsigned char val, Register& reg) {
 void CU::store(unsigned char idxreg, unsigned char idxmem, Register& reg, Memory& mem) {
 	mem.setCell(idxmem, decToHex(reg.getCell(idxreg)));
 	if (idxmem == 0) {
-		cout << (unsigned char)reg.getCell(idxreg);
+		bufferState(reg.getCell(idxreg));
 	}
 }
 

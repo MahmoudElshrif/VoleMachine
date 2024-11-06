@@ -78,8 +78,8 @@ void Machine::printReg() {
 	this->processor->printRegister();
 }
 
-void Machine::start() {
-	processor->execute();
+void Machine::start(bool step) {
+	processor->execute(step);
 }
 
 void Machine::clearMemory() {

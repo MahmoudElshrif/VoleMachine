@@ -21,6 +21,6 @@ public:
 	void printReg();
 	void clearMemory();
 	void clearReg();
-	void start();
+	void start(bool step);
 };
 

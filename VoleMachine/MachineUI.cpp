@@ -12,11 +12,12 @@ void MachineUI::displayOptions() {
 		cout << "---------Vole Machine---------\n" << endl;
 		cout << "1) Read file into memory\n";
 		cout << "2) Execute\n";
-		cout << "3) Print Memory\n";
-		cout << "4) Print Register\n";
-		cout << "5) Clear Memory\n";
-		cout << "6) Clear Register\n";
-		cout << "7) Write current memory into file\n";
+		cout << "3) Execute with steps\n";
+		cout << "4) Print Memory\n";
+		cout << "5) Print Register\n";
+		cout << "6) Clear Memory\n";
+		cout << "7) Clear Register\n";
+		cout << "8) Write current memory into file\n";
 		cout << "0) Exit\n";
 
 		char c;
@@ -30,21 +31,24 @@ void MachineUI::displayOptions() {
 				readFromFile();
 				break;
 			case '2':
-				machine->start();
+				machine->start(false);
 				break;
 			case '3':
-				machine->printMemory();
+				machine->start(true);
 				break;
 			case '4':
-				machine->printReg();
+				machine->printMemory();
 				break;
 			case '5':
-				machine->clearMemory();
+				machine->printReg();
 				break;
 			case '6':
-				machine->clearReg();
+				machine->clearMemory();
 				break;
 			case '7':
+				machine->clearReg();
+				break;
+			case '8':
 				writeToFile();
 				break;
 			default:

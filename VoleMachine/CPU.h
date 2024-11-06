@@ -18,7 +18,7 @@ class CPU {
 public:
 	CPU(Memory* mem);
 	~CPU();
-	bool execute();
+	bool execute(bool step);
 	void setMemory(Memory* mem);
 	void printRegister();
 	void clearReg();
