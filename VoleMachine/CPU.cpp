@@ -36,7 +36,7 @@ string RCell(unsigned char c) {
 
 bool CPU::execute(bool step) {
 	programCounter = 10;
-	cout << "//////////////\n\n";
+	cout << '\n';
 	
 	cu->resetState();
 
@@ -48,6 +48,7 @@ bool CPU::execute(bool step) {
 		switch (op[0]) {
 		case 'c':
 			cout << "Halt" << endl;
+			cout << "\n\n//////////////\n\n";
 			cu->outputState();
 			cout << "\n\n//////////////\n";
 			return false;
@@ -91,6 +92,7 @@ bool CPU::execute(bool step) {
 		}
 
 		if (step) {
+			cout << captialHex(cu->decToHex(programCounter - 2)) << ") ";
 			switch (op[0]) {
 			case '1':
 				cout << "Loaded " << MCell(cell2) << " into " << RCell(regcell) << endl;
@@ -123,10 +125,10 @@ bool CPU::execute(bool step) {
 				cout << "Rotate " << RCell(regcell) << " by " << toupper(cell2[1]) << " steps\n";
 				break;
 			case 'b':
-				cout << "Compare " << RCell(regcell) << " and jump to " << toupper(cell2[1]) << " if equal\n";
+				cout << "Compare " << RCell(regcell) << " and to R0 jump to " << MCell(cell2) << " if equal\n";
 				break;
 			case 'd':
-				cout << "Compare " << RCell(regcell) << " and jump to " << toupper(cell2[1]) << " if greater\n";
+				cout << "Compare " << RCell(regcell) << " and to R0 jump to " << MCell(cell2) << " if greater\n";
 				break;
 			}
 		}
