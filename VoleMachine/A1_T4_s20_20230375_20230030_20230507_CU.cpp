@@ -1,7 +1,7 @@
 #include <iostream>
-#include "CU.h"
-#include "Register.h"
-#include "Memory.h"
+#include "A1_T4_s20_20230375_20230030_20230507_CU.h"
+#include "A1_T4_s20_20230375_20230030_20230507_Register.h"
+#include "A1_T4_s20_20230375_20230030_20230507_Memory.h"
 
 
 void CU::resetState() {
@@ -51,13 +51,13 @@ void CU::addFloat(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3,
 
 	double n1 = 0;
 	double n2 = 0;
-
+	
 	for (int i = 0; i < 4; i++) {
-		n1 /= 2.;
-		n2 /= 2.;
 
 		n1 += val1 & 1;
 		n2 += val2 & 1;
+		n1 /= 2.;
+		n2 /= 2.;
 	}
 
 	n1 *= pow(2, val1 & 0b111);
@@ -75,19 +75,21 @@ void CU::addFloat(unsigned char  idx1, unsigned char  idx2, unsigned char  idx3,
 	auto n3 = n1 + n2;
 	int exp = 0;
 
-	while (n3 > 0) {
+	while (abs(n3) > 1) {
 		exp++;
 		n3 /= 2;
 	}
+
+	cout << n3 << endl;
 
 	while (n3 != (int)n3) {
 		n3 *= 2;
 	}
 
-
 	unsigned char f = 0;
 	if (n3 < 0) {
 		f += 1;
+		n3 *= -1;
 	}
 	f <<= 3;
 	
@@ -122,6 +124,8 @@ void CU::rotate(unsigned char idx, unsigned char steps, Register& reg) {
 		val >>= 1;
 		val += 0x80 * c;
 	}
+
+	reg.setCell(idx, val);
 }
 
 void CU::jumpIfEqual(unsigned char idxReg, unsigned char IdxMem, Register& reg, Memory& mem, unsigned char& PC) {
@@ -167,7 +171,7 @@ unsigned char CU::hexToDec(string s) {
 
 string CU::decToHex(unsigned char i) {
 	string s = "00";
-	const string chars = "0123456789abcedf";
+	const string chars = "0123456789abcdef";
 	
 	s[1] = chars[i & 15];
 	i >>= 4;

@@ -15,45 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Machine.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_Machine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CPU.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_CPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CU.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_CU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Register.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_Register.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Memory.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_Memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MachineUI.cpp">
+    <ClCompile Include="A1_T4_s20_20230375_20230030_20230507_MachineUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Machine.h">
+    <ClInclude Include="A1_T4_s20_20230375_20230030_20230507_Machine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CPU.h">
+    <ClInclude Include="A1_T4_s20_20230375_20230030_20230507_CPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CU.h">
+    <ClInclude Include="A1_T4_s20_20230375_20230030_20230507_CU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Register.h">
+    <ClInclude Include="A1_T4_s20_20230375_20230030_20230507_Register.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Memory.h">
+    <ClInclude Include="A1_T4_s20_20230375_20230030_20230507_Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MachineUI.h">
+    <ClInclude Include="A1_T4_s20_20230375_20230030_20230507_MachineUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

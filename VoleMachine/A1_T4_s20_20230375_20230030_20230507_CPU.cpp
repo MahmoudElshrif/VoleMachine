@@ -1,7 +1,7 @@
-#include "CPU.h"
-#include "Memory.h"
-#include "Register.h"
-#include "CU.h"
+#include "A1_T4_s20_20230375_20230030_20230507_CPU.h"
+#include "A1_T4_s20_20230375_20230030_20230507_Memory.h"
+#include "A1_T4_s20_20230375_20230030_20230507_Register.h"
+#include "A1_T4_s20_20230375_20230030_20230507_CU.h"
 
 
 CPU::CPU(Memory* mem){
@@ -48,7 +48,7 @@ bool CPU::execute(bool step) {
 		switch (op[0]) {
 		case 'c':
 			if(step)
-				cout << "Halt" << endl;
+				cout << captialHex(cu->decToHex(programCounter - 2)) << ") " << "Halt" << endl;
 			cout << "\n\n//////////////\n\n";
 			cu->outputState();
 			cout << "\n//////////////\n\n";
@@ -114,13 +114,13 @@ bool CPU::execute(bool step) {
 				cout << "Added values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << " as floats" << endl;
 				break;
 			case '7':
-				cout << "Bitwise or values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << endl;
+				cout << "Bitwise OR values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << endl;
 				break;
 			case '8':
-				cout << "Bitwise and values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << endl;
+				cout << "Bitwise AND values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << endl;
 				break;
 			case '9':
-				cout << "Bitwise xor values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << endl;
+				cout << "Bitwise XOR values of " << RCell(cell2[0]) << " and " << RCell(cell2[1]) << " into " << RCell(regcell) << endl;
 				break;
 			case 'a':
 				cout << "Rotate " << RCell(regcell) << " by " << toupper(cell2[1]) << " steps\n";
