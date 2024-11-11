@@ -1,7 +1,7 @@
-#include "A1_T4_s20_20230375_20230030_20230507_Machine.h"
+#include ".h"
 #include <fstream>
-#include "A1_T4_s20_20230375_20230030_20230507_Memory.h"
-#include "A1_T4_s20_20230375_20230030_20230507_CPU.h"
+#include "Memory.h"
+#include "CPU.h"
 #include <string>
 
 Machine::Machine(){

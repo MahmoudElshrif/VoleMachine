@@ -1,7 +1,7 @@
-#include "A1_T4_s20_20230375_20230030_20230507_CPU.h"
-#include "A1_T4_s20_20230375_20230030_20230507_Memory.h"
-#include "A1_T4_s20_20230375_20230030_20230507_Register.h"
-#include "A1_T4_s20_20230375_20230030_20230507_CU.h"
+#include "CPU.h"
+#include "Memory.h"
+#include "Register.h"
+#include "CU.h"
 
 
 CPU::CPU(Memory* mem){

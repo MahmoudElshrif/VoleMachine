@@ -1,7 +1,7 @@
 #include <iostream>
-#include "A1_T4_s20_20230375_20230030_20230507_CU.h"
-#include "A1_T4_s20_20230375_20230030_20230507_Register.h"
-#include "A1_T4_s20_20230375_20230030_20230507_Memory.h"
+#include "CU.h"
+#include "Register.h"
+#include "Memory.h"
 
 
 void CU::resetState() {
